@@ -17,5 +17,10 @@ theorem hermite_hadamard {a b : ℝ} (hab : a < b) {f : ℝ → ℝ}
       constructor
       · linarith
       · linarith
+    have hf_int : IntervalIntegrable f MeasureTheory.volume a b := by
+      apply ContinuousOn.intervalIntegrable
+      rwa [Set.uIcc_of_le (le_of_lt hab)]
+    have hf_intOn : IntegrableOn f (Set.Icc a b) MeasureTheory.volume := by
+      apply ContinuousOn.integrableOn_Icc hfc
     sorry
   · sorry
