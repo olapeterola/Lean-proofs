@@ -1,8 +1,8 @@
 import Lake
 open Lake DSL
 
-package «Lean-proofs» where
-  name := "Lean-proofs"
+package «LeanProofs» where
+  name := "LeanProofs"
 
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4" @ "master"
