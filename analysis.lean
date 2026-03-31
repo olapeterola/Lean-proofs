@@ -9,5 +9,13 @@ theorem hermite_hadamard {a b : ℝ} (hab : a < b) {f : ℝ → ℝ}
     f ((a + b) / 2) ≤ (1 / (b - a)) * ∫ x in a..b, f x ∧
     (1 / (b - a)) * ∫ x in a..b, f x ≤ (f a + f b) / 2 := by
   constructor
-  · sorry
+  · have hab' : b - a ≠ 0 := by linarith
+    have hIcc_ne : (Set.Icc a b).Nonempty := Set.nonempty_Icc.mpr (le_of_lt hab)
+    have hIcc_closed : IsClosed (Set.Icc a b) := isClosed_Icc (a := a) (b := b)
+    have hconv : ConvexOn ℝ (Set.Icc a b) f := hf
+    have hmid : (a + b) / 2 ∈ Set.Icc a b := by
+      constructor
+      · linarith
+      · linarith
+    sorry
   · sorry
