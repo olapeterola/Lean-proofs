@@ -7,4 +7,4 @@ package «Lean-proofs» where
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4" @ "master"
 
-lean_lib «LeanProofs1» where
+lean_lib «LeanProofs» where
